@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 // import { UserStyleContainer, UserStyle } from "../../Styles/style";
 // import UserNavbar from "../../Navbar/UserNavbar";
-import { Grid, Container, ButtonGroup, Button } from "@mui/material";
+import { Grid, Container, Backdrop, CircularProgress } from "@mui/material";
 import ButtonsGroup from "../Buttons/ButtonsGroup";
 import TaskCard from "../Components/TaskCard";
-const TodoList = ({ todos, title, handleDelete }) => {
-  const [loading, setLoading] = useState()
+const TodoList = ({ todos, title, handleDelete, open }) => {
   return (
     <div>
       <Container>
+        <div>
+          <Backdrop
+            sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+            open={open}
+          >
+            <CircularProgress color="inherit" />
+          </Backdrop>
+        </div>
         <h2 style={{ textAlign: "center" }}>{title}</h2>
         <h2 style={{ textAlign: "center" }}>Priority</h2>
         <ButtonsGroup />

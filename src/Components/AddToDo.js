@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import BackButton from "../Buttons/BackButton";
 import useAddTodo from "../Hooks/useAddTodo";
+import ToastsContainer from "./Alert/ToastsContainer";
+
 import {
   Button,
   TextField,
@@ -20,6 +24,7 @@ import { LocalizationProvider, DateTimePicker } from "@mui/x-date-pickers";
 import { FormStyle, ButtonStyle } from "../Styles/Styles";
 
 export default function AddToDo() {
+  const [open, setOpen] = useState(true);
   const [
     title,
     setTitle,
@@ -35,6 +40,13 @@ export default function AddToDo() {
     handleClose,
     handleYes,
   ] = useAddTodo();
+
+  useEffect(() => {
+    setOpen(true);
+    setTimeout(() => {
+      setOpen(false);
+    }, 1000);
+  });
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <div>
@@ -157,6 +169,7 @@ export default function AddToDo() {
             </Button>
           </div>
         </form>
+        <ToastContainer autoClose={3000} />
       </div>
     </LocalizationProvider>
   );

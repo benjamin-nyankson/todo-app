@@ -7,6 +7,7 @@ import Urgent from "./Components/Priority/Urgent";
 import High from "./Components/Priority/High";
 import Medium from "./Components/Priority/Medium";
 import Low from "./Components/Priority/Low";
+import BackDrop from "./Components/BackDrop";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/high" element={<High />} />
         <Route path="/medium" element={<Medium />} />
         <Route path="/low" element={<Low />} />
+        <Route path="/back" element={<BackDrop />} />
       </Routes>
     </div>
   );

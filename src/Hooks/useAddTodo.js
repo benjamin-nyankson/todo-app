@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 import dayjs from "dayjs";
 export default function useAddTodo() {
   const [title, setTitle] = useState("");
@@ -8,7 +10,6 @@ export default function useAddTodo() {
   const [date, setDate] = useState(new Date(dayjs()));
   const [openDialog, setOpenDialog] = React.useState(false);
   const Navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
   const d = new Date(date);
   const completeDate = d.toDateString();
   const completeTime = d.toTimeString().slice(0, -36);
@@ -17,7 +18,7 @@ export default function useAddTodo() {
     event.preventDefault();
 
     if (title === "" || note === "" || priority === "") {
-      alert("All fields are required");
+      toast.error("All fields are required");
     } else {
       const data = {
         title: title,
@@ -32,33 +33,39 @@ export default function useAddTodo() {
           "Content-type": "application/json",
         },
         body: JSON.stringify(data),
-        
       };
 
       switch (priority) {
         case "Urgent":
           console.log("Adding");
+
+          fetch("http://localhost:8000/Urgent/", items);
+          console.log("Added");
+          toast.success("Added Successfully, Redirecting");
           setTimeout(() => {
-            fetch("http://localhost:8000/Urgent/", items);
-            console.log("Added");
-            console.log(data);
-          }, 3000);
+            Navigate("/urgent");
+          }, 4000);
+          //
+          console.log(data);
 
           break;
 
         case "High":
           fetch("http://localhost:8000/High/", items);
           console.log(data);
+          toast.success("Added Successfully");
           break;
 
         case "Medium":
           fetch("http://localhost:8000/Medium/", items);
           console.log(data);
+          toast.success("Added Successfully");
           break;
 
         case "Low":
           fetch("http://localhost:8000/Low/", items);
           console.log(data);
+          toast.success("Added Successfully");
           break;
       }
     }
