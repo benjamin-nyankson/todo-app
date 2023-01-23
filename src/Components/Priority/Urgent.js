@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
-import TodoList from "./TodoList";
-import AddButton from "../Buttons/AddButton";
+import TodoList from "../TodoList";
+import AddButton from "../../Buttons/AddButton";
 function Todos() {
   const [todos, setTodos] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8000/Urgent/")
+    console.log('Loading...')
+    setTimeout(() => {
+      fetch("http://localhost:8000/Urgent/")
       .then((response) => response.json())
       .then((data) => {
         setTodos(data);
       })
       .catch((err) => console.log(err));
+      console.log('Loaded')
+    }, 3000);
+   
   }, []);
 
   const handleDelete = async (id) => {

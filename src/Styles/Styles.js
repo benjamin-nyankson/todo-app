@@ -59,3 +59,7 @@ export const FormStyle = {
   margin: "auto",
   padding: "20px",
 };
+
+export const ButtonStyle = {
+  marginLeft: "10px",
+};

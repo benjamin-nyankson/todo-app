@@ -1,22 +1,42 @@
 {
-  "todos": [
+  "Urgent": [
     {
-      "title": "Dance",
-      "note": "Miles",
-      "priority": "medium",
+      "title": "Go to dancing club",
+      "note": "sssssss",
+      "priority": "Urgent",
+      "date": "Mon Jan 23 2023",
+      "time": "10:52",
       "id": 1
-    },
+    }
+  ],
+  "High": [
     {
-      "title": "www@f",
-      "note": "Dance",
-      "priority": "low",
-      "id": 2
-    },
+      "title": "2",
+      "note": "sssssss",
+      "priority": "High",
+      "date": "Mon Jan 23 2023",
+      "time": "10:35",
+      "id": 1
+    }
+  ],
+  "Medium": [
     {
-      "title": "www@f",
-      "note": "Dance",
-      "priority": "low",
-      "id": 3
+      "title": "2",
+      "note": "sssssss",
+      "priority": "Medium",
+      "date": "Mon Jan 23 2023",
+      "time": "10:35",
+      "id": 1
+    }
+  ],
+  "Low": [
+    {
+      "title": "Go to dancing club",
+      "note": "sssssss",
+      "priority": "Low",
+      "date": "Mon Jan 23 2023",
+      "time": "10:34",
+      "id": 1
     }
   ]
 }

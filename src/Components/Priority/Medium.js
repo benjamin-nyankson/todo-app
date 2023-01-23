@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import TodoList from "./TodoList";
-import AddButton from "../Buttons/AddButton";
+import TodoList from "../TodoList";
+import AddButton from "../../Buttons/AddButton";
 function Todos() {
   const [todos, setTodos] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8000/Urgent/")
+    fetch("http://localhost:8000/Medium/")
       .then((response) => response.json())
       .then((data) => {
         setTodos(data);
@@ -13,7 +13,7 @@ function Todos() {
   }, []);
 
   const handleDelete = async (id) => {
-    await fetch("http://localhost:8000/Urgent/" + id, {
+    await fetch("http://localhost:8000/Medium/" + id, {
       method: "DELETE",
     });
     const newTodo = todos.filter((todo) => todo.id !== id);
