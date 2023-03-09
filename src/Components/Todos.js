@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import TodoList from "./TodoList";
 import AddButton from "../Buttons/AddButton";
+import Paginations from "./Pagination/Paginations";
+import Paginate from "./Paginate";
 function Todos() {
   const [todos, setTodos] = useState([]);
   useEffect(() => {
@@ -26,6 +28,10 @@ function Todos() {
         title="Today's Task"
         handleDelete={handleDelete}
       />
+      <br />
+      <br />
+
+      <Paginate />
       <AddButton />
     </div>
   );

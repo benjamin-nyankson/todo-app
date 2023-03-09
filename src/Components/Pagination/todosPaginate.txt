@@ -1,0 +1,59 @@
+import React from "react";
+import {
+  CardHeader,
+  Card,
+  IconButton,
+  CardContent,
+  Typography,
+  Grid,
+  Container,
+  Paper,
+} from "@mui/material";
+function TodosPaginate({ todos, loading }) {
+  if (loading) {
+    return <h2>Loading....</h2>;
+  }
+  return (
+    <ul>
+      <Container>
+        <Grid container spacing={3} sx={{ margin: "auto" }}>
+          <Grid container spacing={3} sx={{ margin: "auto" }}>
+            {todos.map((todo) => (
+              <Grid item key={todo.id} xs={12} md={6} lg={4}>
+                {/* <p>{todo.id}</p> */}
+                <Paper>
+                  <h1>{todo.title}</h1>
+                  <h3>{todo.priority}</h3>
+                  <h3>{todo.note}</h3>
+                  <h3>{todo.date}</h3>
+                </Paper>
+                {/* <TaskCard todo={todo} handleDelete={handleDelete} tot/> */}
+              </Grid>
+            ))}
+          </Grid>
+        </Grid>
+      </Container>
+      {/* {todos.map((todo) => (
+        // <li key={todo.id}>{todo.title}</li>
+
+        <Card elevation={4} key={todo.id} lg={12}>
+          <CardHeader
+            //   action={
+            //     // <IconButton onClick={() => handleDelete(todo.id)}>
+            //     //   <DeleteOutlineOutlined />
+            //     // </IconButton>
+            //   }
+            title={`${todo.title} id:${todo.id}`}
+            subheader={todo.priority}
+          />
+          <CardContent>
+            <Typography color="textSecondary">{todo.note}</Typography>
+            <Typography color="textSecondary">{`${todo.date} at ${todo.time}`}</Typography>
+          </CardContent>
+        </Card>
+      ))} */}
+    </ul>
+  );
+}
+
+export default TodosPaginate;

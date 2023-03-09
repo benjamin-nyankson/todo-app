@@ -1,0 +1,65 @@
+import React, { useEffect, useState } from "react";
+import {
+  ButtonGroup,
+  Button,
+  Stack,
+  Pagination,
+  PaginationItem,
+  Grid,
+} from "@mui/material";
+import { Link } from "react-router-dom";
+export default function PaginateLists({ todoPerPage, totalTodos, paginate }) {
+  //   const [currentPage, setCurrentPage] = useState();
+  const [pagination, setPagination] = useState();
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(totalTodos / todoPerPage); i++) {
+    pageNumbers.push(i);
+
+    // pageNumbers.map(nums =>(
+    //     setNum(nums)
+    // ))
+  }
+
+  //   useEffect(() => {
+  //     console.log(totalTodos / todoPerPage);
+  //   });
+
+  const handleChange = (event, page) => {
+    const from = (page - 1) * todoPerPage;
+    const to = (page - 1) * todoPerPage + todoPerPage;
+    setPagination({ ...pagination, from: from, to: to });
+    console.log(page);
+  };
+  return (
+    <nav>
+      {
+        //   pageNumbers.map((number) => (
+        // <ButtonGroup key={number.id} variant="outlined">
+        //   {/* <Pagination count={number} /> */}
+
+        //   <Button onClick={() => paginate(number)} size="small">
+        //     {number}
+        //   </Button>
+        //   <Pagination count={totalTodos} onClick={(e) => console.log(e)} />
+        // </ButtonGroup>
+        // //   <li
+        // //     key={number.id}
+        // //     style={{ margin: "5px", background: "blue", padding: "10px" }}
+        // //   >
+        // //     <a href="!#"></a>
+        // //   </li>
+
+        <Stack>
+          <Pagination
+            count={Math.ceil(totalTodos / todoPerPage)}
+            component={Link}
+            shape="rounded"
+            // onClick={() => paginate(pageNumbers)}
+            onChange={handleChange}
+          />
+        </Stack>
+        //   ))
+      }
+    </nav>
+  );
+}

@@ -4,15 +4,13 @@ import useAddTodo from "../Hooks/useAddTodo";
 import {
   Button,
   TextField,
-  FormLabel,
-  RadioGroup,
-  FormControlLabel,
-  Radio,
   Dialog,
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Select,
+  MenuItem,
 } from "@mui/material";
 
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -34,6 +32,7 @@ export default function AddToDo() {
     handleCancel,
     handleClose,
     handleYes,
+    handlePriority,
   ] = useAddTodo();
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -107,27 +106,13 @@ export default function AddToDo() {
               alignItems: "center",
             }}
           >
-            <FormLabel>Priority:</FormLabel>
-            <RadioGroup
-              row
-              name="row-radio-buttons-group"
-              value={priority}
-              onChange={(e) => setPriority(e.target.value)}
-            >
-              <FormControlLabel value="Low" control={<Radio />} label="Low" />
-              <FormControlLabel
-                value="Medium"
-                control={<Radio />}
-                label="Medium"
-              />
-
-              <FormControlLabel value="High" control={<Radio />} label="High" />
-              <FormControlLabel
-                value="Urgent"
-                control={<Radio />}
-                label="Urgent"
-              />
-            </RadioGroup>
+            Priority
+            <Select value={priority} onChange={handlePriority}>
+              <MenuItem value="Urgent">Urgent</MenuItem>
+              <MenuItem value="High">High</MenuItem>
+              <MenuItem value="Medium">Medium</MenuItem>
+              <MenuItem value="Low">Low</MenuItem>
+            </Select>
           </div>
           <br />
           <DateTimePicker

@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 export default function useAddTodo() {
   const [title, setTitle] = useState("");
   const [note, setNote] = useState("");
-  const [priority, setPriority] = useState("");
+  const [priority, setPriority] = useState("Urgent");
   const [date, setDate] = useState(new Date(dayjs()));
   const [openDialog, setOpenDialog] = React.useState(false);
   const Navigate = useNavigate();
@@ -16,7 +16,7 @@ export default function useAddTodo() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (title === "" || note === "" || priority === "") {
+    if (title === "" || note === "") {
       alert("All fields are required");
     } else {
       const data = {
@@ -26,13 +26,13 @@ export default function useAddTodo() {
         date: completeDate,
         time: completeTime,
       };
+      console.log(data);
       const items = {
         method: "POST",
         headers: {
           "Content-type": "application/json",
         },
         body: JSON.stringify(data),
-        
       };
 
       switch (priority) {
@@ -77,7 +77,11 @@ export default function useAddTodo() {
   };
 
   const handleYes = () => {
-    Navigate("/todos");
+    Navigate("/allTodos");
+  };
+
+  const handlePriority = (event) => {
+    setPriority(event.target.value);
   };
   return [
     title,
@@ -93,5 +97,6 @@ export default function useAddTodo() {
     handleCancel,
     handleClose,
     handleYes,
+    handlePriority,
   ];
 }

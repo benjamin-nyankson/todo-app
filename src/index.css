@@ -6,10 +6,55 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(195, 248, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   /* color: rgb(195, 248, 255); */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.nav button:hover{
+  /* font-size: 20px; */
+  font-weight: bold;
+}
+.active.active{
+  background-color: blue;
+  color: white;
+  font-size: 20px;
+  margin: 5px;
+
+}
+
+.paginationBtns{
+ max-width:40%;
+ height: 40px;
+ list-style: none;
+ display: flex;
+ justify-content: center;
+ margin: 0 auto;
+}
+
+.paginationBtns a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid blue;
+  cursor: pointer;
+}
+
+.paginationBtns a:hover{
+  color: white;
+  background-color: blue;
+
+}
+
+.paginateActive a{
+  background-color: blue;
+  color: white;
+
 }

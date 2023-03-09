@@ -52,7 +52,7 @@ export const Fighting = {
 };
 
 export const FormStyle = {
-  width: "50%",
+  width: "100%",
   backgroundColor: "white",
   fontWeight: "bold",
   borderRadius: "20px",

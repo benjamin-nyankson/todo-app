@@ -23,8 +23,10 @@ function UserCard({ todo, handleDelete }) {
         <CardContent>
           <Typography color="textSecondary">{todo.note}</Typography>
           <Typography color="textSecondary">{`${todo.date } at ${todo.time}`}</Typography>
+          
         </CardContent>
       </Card>
+      {/* <Typography>{todo.length}</Typography> */}
     </div>
   );
 }
